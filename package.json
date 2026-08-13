@@ -4,14 +4,15 @@
   "description": "Personal Portfolio Website using HTML, CSS, and JavaScript",
   "main": "index.html",
   "scripts": {
-  "start": "node backend/server.js"
-},
+    "start": "node backend/server.js"
+  },
   "devDependencies": {
     "serve": "^14.2.4"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "nodemailer": "^9.0.5"
+    "nodemailer": "^9.0.5",
+    "resend": "^6.19.0"
   }
 }
