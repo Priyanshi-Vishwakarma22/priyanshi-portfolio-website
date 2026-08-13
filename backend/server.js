@@ -6,7 +6,7 @@ const path = require("path");
 dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,13 +16,17 @@ app.use(express.static(path.join(__dirname, "..")));
 
 // Gmail transporter
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        family: 4
     }
 });
-
 // Check Gmail connection
 transporter.verify((error, success) => {
     if (error) {
