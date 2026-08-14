@@ -1,5 +1,5 @@
 const express = require("express");
-const { Resend } = require("resend");
+const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 const path = require("path");
 
@@ -8,7 +8,13 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -29,15 +35,13 @@ app.post("/api/contact", async (req, res) => {
     }
 
     try {
-
-        const { data, error } = await resend.emails.send({
-            from: "Portfolio <onboarding@resend.dev>",
-            to: [process.env.EMAIL_USER],
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
             replyTo: email,
             subject: subject
                 ? `Portfolio Contact: ${subject}`
                 : `Portfolio Contact: Message from ${name}`,
-
             html: `
                 <h2>New Portfolio Contact</h2>
 
@@ -49,17 +53,10 @@ app.post("/api/contact", async (req, res) => {
                 <h3>Message</h3>
                 <p>${message}</p>
             `
-        });
+        };
 
-        if (error) {
-            console.error(error);
-            return res.status(500).json({
-                success: false,
-                message: "Failed to send message."
-            });
-        }
-
-        console.log("Email Sent:", data);
+        await transporter.sendMail(mailOptions);
+        console.log("Email Sent to:", process.env.EMAIL_USER);
 
         res.status(200).json({
             success: true,
