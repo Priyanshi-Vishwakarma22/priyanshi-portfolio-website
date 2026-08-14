@@ -578,47 +578,84 @@
         <h2 class="heading">My <span>Certifications</span></h2>
 
         <div class="certifications-container">
-            <div class="cert-card">
+            <!-- Certificate 1: Hackathon -->
+            <div class="cert-card" onclick="openCertModal('hackathon')" style="cursor: pointer;">
                 <i class='bx bx-trophy'></i>
                 <div class="cert-info">
-                    <h3>National Level Hackathon Certificate</h3>
-                    <p>S-VYASA Campus, Bengaluru</p>
+                    <h3>Expert Labs National Hackathon</h3>
+                    <p>IBM Expert Labs</p>
+                    <span class="cert-date">Aug 2025</span>
                 </div>
+                <div class="cert-badge">Click to View</div>
             </div>
 
-            <div class="cert-card">
+            <!-- Certificate 2: Data Analytics (Simplilearn) -->
+            <div class="cert-card" onclick="openCertModal('simplilearn')" style="cursor: pointer;">
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <div class="cert-info">
+                    <h3>Introduction to Data Analytics</h3>
+                    <p>Simplilearn SkillUP</p>
+                    <span class="cert-date">Apr 2025</span>
+                </div>
+                <div class="cert-badge">Click to View</div>
+            </div>
+
+            <!-- Certificate 3: Data Analytics (Deloitte) -->
+            <div class="cert-card" onclick="openCertModal('deloitte')" style="cursor: pointer;">
                 <i class='bx bx-certification'></i>
                 <div class="cert-info">
-                    <h3>Data Analytics</h3>
+                    <h3>Data Analytics Job Simulation</h3>
                     <p>Deloitte</p>
+                    <span class="cert-date">Mar 2025</span>
                 </div>
+                <div class="cert-badge">Click to View</div>
             </div>
 
-            <div class="cert-card">
-                <i class='bx bx-line-chart'></i>
-                <div class="cert-info">
-                    <h3>Data Visualization with Python</h3>
-                    <p>IBM</p>
-                </div>
-            </div>
-
-            <div class="cert-card">
+            <!-- Certificate 4: SQL Basic -->
+            <div class="cert-card" onclick="openCertModal('sql')" style="cursor: pointer;">
                 <i class='bx bx-data'></i>
                 <div class="cert-info">
                     <h3>SQL (Basic)</h3>
                     <p>HackerRank</p>
+                    <span class="cert-date">Sep 2025</span>
                 </div>
+                <div class="cert-badge">Click to View</div>
             </div>
 
-            <div class="cert-card">
+            <!-- Certificate 5: Python Basics -->
+            <div class="cert-card" onclick="openCertModal('python')" style="cursor: pointer;">
                 <i class='bx bxl-python'></i>
                 <div class="cert-info">
-                    <h3>Python Basics</h3>
+                    <h3>Introduction to Python</h3>
                     <p>IBM</p>
+                    <span class="cert-date">2025</span>
                 </div>
+                <div class="cert-badge">Click to View</div>
+            </div>
+
+            <!-- Certificate 6: Data Visualization -->
+            <div class="cert-card" onclick="openCertModal('visualization')" style="cursor: pointer;">
+                <i class='bx bx-line-chart'></i>
+                <div class="cert-info">
+                    <h3>Data Visualization</h3>
+                    <p>IBM</p>
+                    <span class="cert-date">2025</span>
+                </div>
+                <div class="cert-badge">Click to View</div>
             </div>
         </div>
     </section>
+
+    <!-- CERTIFICATE MODAL -->
+    <div id="certModal" class="cert-modal">
+        <div class="cert-modal-content">
+            <span class="cert-close" onclick="closeCertModal()">&times;</span>
+            
+            <div id="certModalBody">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
 
     <!-- EDUCATION SECTION -->
     <section class="education" id="education">
