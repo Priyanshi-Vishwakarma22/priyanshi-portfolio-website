@@ -9,8 +9,7 @@ const certificateData = {
         details: [
             { label: "Event Name", value: "Expert Labs National Hackathon 2025" },
             { label: "Registration ID", value: "UID: 220220222" },
-            { label: "Institution", value: "Chhatrapati Shivaji Maharaj University" },
-            { label: "Location", value: "Navi Mumbai" }
+            { label: "Location", value: "S-Vyasa University, Bengaluru" }
         ],
         description: "Certificate of Participation for successfully participating in the National Level Hackathon organized by IBM Expert Labs.",
         downloadUrl: "certificates/Hackathon_Certificate.pdf"
