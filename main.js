@@ -13,7 +13,7 @@ const certificateData = {
             { label: "Location", value: "Navi Mumbai" }
         ],
         description: "Certificate of Participation for successfully participating in the National Level Hackathon organized by IBM Expert Labs.",
-        downloadUrl: "#"
+        downloadUrl: "certificates/Hackathon_Certificate.pdf"
     },
     simplilearn: {
         title: "Introduction to Data Analytics",
@@ -27,7 +27,7 @@ const certificateData = {
             { label: "Status", value: "Certificate of Completion" }
         ],
         description: "Successfully completed the online course with demonstrated initiative and commitment to deepening data analytics skills.",
-        downloadUrl: "#"
+        downloadUrl: "certificates/Simplilearn_Data_Analytics.pdf"
     },
     deloitte: {
         title: "Data Analytics Job Simulation",
@@ -41,7 +41,7 @@ const certificateData = {
             { label: "Issued By", value: "Forage" }
         ],
         description: "Completed practical tasks in data analysis and forensic technology through Deloitte's job simulation program.",
-        downloadUrl: "#"
+        downloadUrl: "certificates/Deloitte_Data_Analytics.pdf"
     },
     sql: {
         title: "SQL (Basic) Certificate",
@@ -55,7 +55,7 @@ const certificateData = {
             { label: "Certificate ID", value: "729E50D2D23B" }
         ],
         description: "Successfully passed the HackerRank SQL (Basic) skill certification test, demonstrating proficiency in fundamental SQL concepts and queries.",
-        downloadUrl: "#"
+        downloadUrl: "certificates/HackerRank_SQL.pdf"
     },
     python: {
         title: "Introduction to Python",
@@ -69,7 +69,7 @@ const certificateData = {
             { label: "Status", value: "Certified" }
         ],
         description: "Completed IBM's comprehensive Python fundamentals course, building strong foundations in programming with Python.",
-        downloadUrl: "#"
+        downloadUrl: "certificates/IBM_Python.pdf"
     },
     visualization: {
         title: "Data Visualization",
@@ -83,7 +83,7 @@ const certificateData = {
             { label: "Status", value: "Certified" }
         ],
         description: "Successfully completed IBM's Data Visualization course, mastering techniques for creating compelling visual representations of data.",
-        downloadUrl: "#"
+        downloadUrl: "certificates/IBM_Data_Visualization.pdf"
     }
 };
 
@@ -131,7 +131,13 @@ function closeCertModal() {
 function downloadCertificate(certId) {
     const cert = certificateData[certId];
     if (cert.downloadUrl && cert.downloadUrl !== "#") {
-        window.open(cert.downloadUrl, "_blank");
+        // Create a link and trigger download
+        const link = document.createElement('a');
+        link.href = cert.downloadUrl;
+        link.download = cert.downloadUrl.split('/').pop();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     } else {
         alert("Certificate download link will be available soon! Please add your certificate URLs.");
     }
