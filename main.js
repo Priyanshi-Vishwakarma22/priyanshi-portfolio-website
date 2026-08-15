@@ -127,20 +127,20 @@ function closeCertModal() {
     modal.style.display = "none";
 }
 
-function downloadCertificate(certId) {
-    const cert = certificateData[certId];
-    if (cert.downloadUrl && cert.downloadUrl !== "#") {
-        // Create a link and trigger download
-        const link = document.createElement('a');
-        link.href = cert.downloadUrl;
-        link.download = cert.downloadUrl.split('/').pop();
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    } else {
-        alert("Certificate download link will be available soon! Please add your certificate URLs.");
-    }
-}
+// function downloadCertificate(certId) {
+//     const cert = certificateData[certId];
+//     if (cert.downloadUrl && cert.downloadUrl !== "#") {
+//         // Create a link and trigger download
+//         const link = document.createElement('a');
+//         link.href = cert.downloadUrl;
+//         link.download = cert.downloadUrl.split('/').pop();
+//         document.body.appendChild(link);
+//         link.click();
+//         document.body.removeChild(link);
+//     } else {
+//         alert("Certificate download link will be available soon! Please add your certificate URLs.");
+//     }
+// }
 
 // Close modal when clicking outside
 window.onclick = function(event) {
