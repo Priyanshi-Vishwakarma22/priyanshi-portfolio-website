@@ -111,10 +111,11 @@ function openCertModal(certId) {
             
             <p>${cert.description}</p>
             
-            <div class="cert-modal-buttons">
-                <button class="cert-btn cert-btn-primary" onclick="downloadCertificate('${certId}')"><i class='bx bx-download'></i> Download Certificate</button>
-                <button class="cert-btn" onclick="closeCertModal()"><i class='bx bx-x'></i> Close</button>
-            </div>
+          <div class="cert-modal-buttons"> 
+            <button class="cert-btn" onclick="closeCertModal()">
+            <i class='bx bx-x'></i> Close
+            </button> 
+    
         </div>
     `;
     
