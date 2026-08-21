@@ -11,7 +11,7 @@ This portfolio showcases my technical skills, projects, certifications, educatio
 ## 🚀 Live Portfolio
 
 🌐 **Visit My Portfolio:**  
-https://priyanshi-portfolio-website-1.onrender.com/
+(https://priyanshi-vishwakarma-portfolio.netlify.app/)
 
 ---
 
