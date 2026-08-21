@@ -716,6 +716,8 @@ section {
     align-items: center;
     gap: 20px;
     transition: .4s ease;
+    min-height: 130px;   
+    height: 100%;  
 }
 
 .cert-card:hover {
@@ -734,6 +736,9 @@ section {
     font-size: 18px;
     color: #fff;
     margin-bottom: 5px;
+    min-height: 46px;    
+    display: flex;       
+    align-items: center;
 }
 
 .cert-info p {
