@@ -240,7 +240,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
 
-                const response = await fetch("/api/contact", {
+                const BACKEND_URL = "https://priyanshi-portfolio-website-1.onrender.com";
+                
+                const response = await fetch(`${BACKEND_URL}/api/contact`, {
                     method: "POST",
 
                     headers: {
