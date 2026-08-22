@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const { Resend } = require("resend");
 const dotenv = require("dotenv");
 const path = require("path");
@@ -9,6 +10,24 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Allow requests from both the Netlify frontend and the Render-served frontend
+const allowedOrigins = [
+    "https://priyanshi-vishwakarma-portfolio.netlify.app",
+    "https://priyanshi-portfolio-website-1.onrender.com"
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like Postman, curl, or same-origin requests)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    methods: ["GET", "POST"]
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
